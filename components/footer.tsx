@@ -9,7 +9,7 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Mi Catálogo</h3>
             <p className="text-muted-foreground mb-4">
-              Ofrecemos productos de alta calidad para satisfacer todas tus necesidades de maquinaria y jardinería.
+              Ofrecemos putas  productos de alta calidad para satisfacer todas tus necesidades de maquinaria y jardinería.
             </p>
             <div className="flex space-x-4">
               <Link href="#" className="text-muted-foreground hover:text-primary">
