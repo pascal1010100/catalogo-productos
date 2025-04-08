@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { ShoppingBag } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CartItemComponent } from "@/components/cart/cart-item"
@@ -12,8 +13,36 @@ interface CartDropdownProps {
 
 export function CartDropdown({ isOpen, onClose }: CartDropdownProps) {
   const { items, totalItems, totalPrice, clearCart } = useCart()
+  const [loading, setLoading] = useState(false)
 
   if (!isOpen) return null
+
+  const handleCheckout = async () => {
+    setLoading(true)
+    try {
+      // Aquí defines la URL del endpoint en tu backend para procesar el checkout.
+      // Por ejemplo, '/api/checkout' o la ruta que hayas definido.
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ items, totalPrice })
+      })
+      if (!response.ok) {
+        // Manejar error de respuesta
+        console.error("Error al procesar la compra")
+      } else {
+        // Procesar la respuesta, quizá limpiar el carrito, mostrar mensaje, etc.
+        console.log("Compra procesada exitosamente")
+        clearCart()
+      }
+    } catch (error) {
+      console.error("Error en el checkout:", error)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <div className="absolute right-0 mt-2 w-80 bg-background border rounded-md shadow-lg z-50">
@@ -46,11 +75,12 @@ export function CartDropdown({ isOpen, onClose }: CartDropdownProps) {
             <Button variant="outline" size="sm" onClick={clearCart}>
               Vaciar Carrito
             </Button>
-            <Button size="sm">Finalizar Compra</Button>
+            <Button size="sm" onClick={handleCheckout} disabled={loading}>
+              {loading ? "Procesando..." : "Finalizar Compra"}
+            </Button>
           </div>
         </div>
       )}
     </div>
   )
 }
-
