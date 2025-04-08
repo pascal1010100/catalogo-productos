@@ -1,14 +1,18 @@
 {
   "name": "catalogo-productos",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "nodemon index.js",
     "build": "next build",
-    "start": "next start",
+    "start": "node index.js",
     "lint": "next lint"
   },
   "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.0.3",
+    "body-parser": "^1.20.2",
     "@prisma/client": "^6.5.0",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-slot": "^1.1.2",
@@ -35,6 +39,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "nodemon": "^2.0.22"
   }
 }

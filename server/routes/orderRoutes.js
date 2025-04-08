@@ -1,22 +1,20 @@
 // server/routes/orderRoutes.js
-import express from "express";
-const router = express.Router();
+import { Router } from 'express';
+import {
+  createOrder,
+  getAllOrders,
+  getOrderById,
+  updateOrder,
+  deleteOrder
+} from '../controllers/orderController.js';
 
-// POST /orders/create - Crear un nuevo pedido
-router.post("/create", (req, res) => {
-  const { userEmail, products } = req.body;
-  
-  // Validación mínima
-  if (!userEmail || !products || products.length === 0) {
-    return res.status(400).json({ error: "Faltan datos: se requiere 'userEmail' y un arreglo de 'products'" });
-  }
-  
-  // Aquí podrías agregar lógica para guardar el pedido en una base de datos.
-  // Por ahora, retornamos la información recibida.
-  res.status(201).json({
-    message: "Pedido creado",
-    order: { userEmail, products }
-  });
-});
+const router = Router();
+
+// CRUD de pedidos
+router.get('/',        getAllOrders);     // GET  /api/orders
+router.get('/:id',     getOrderById);     // GET  /api/orders/:id
+router.post('/',       createOrder);      // POST /api/orders
+router.put('/:id',     updateOrder);      // PUT  /api/orders/:id
+router.delete('/:id',  deleteOrder);      // DELETE /api/orders/:id
 
 export default router;
