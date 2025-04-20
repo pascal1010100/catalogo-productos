@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React from "react"
 import { ShoppingBag } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CartItemComponent } from "@/components/cart/cart-item"
@@ -8,12 +8,12 @@ import { useCart } from "@/context/cart-context"
 
 interface CartDropdownProps {
   isOpen: boolean
-  onClose: () => void
 }
 
-export function CartDropdown({ isOpen, onClose }: CartDropdownProps) {
-  const { items, totalItems, totalPrice, clearCart } = useCart()
-  const [loading, setLoading] = useState(false)
+export function CartDropdown({ isOpen }: CartDropdownProps) {
+
+  const { items, totalPrice, clearCart, totalItems } = useCart()
+  const [loading, setLoading] = React.useState(false)
 
   if (!isOpen) return null
 
@@ -84,3 +84,4 @@ export function CartDropdown({ isOpen, onClose }: CartDropdownProps) {
     </div>
   )
 }
+

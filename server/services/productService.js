@@ -1,5 +1,4 @@
 // server/services/productService.js
-
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -18,12 +17,10 @@ export const getProductById = async (id) => {
 
 // Crear un nuevo producto
 export const createProduct = async (data) => {
-  return await prisma.product.create({
-    data
-  });
+  return await prisma.product.create({ data });
 };
 
-// Actualizar un producto
+// Actualizar producto
 export const updateProduct = async (id, data) => {
   return await prisma.product.update({
     where: { id },
@@ -31,7 +28,7 @@ export const updateProduct = async (id, data) => {
   });
 };
 
-// Eliminar un producto
+// Eliminar producto
 export const deleteProduct = async (id) => {
   return await prisma.product.delete({
     where: { id }

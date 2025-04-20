@@ -1,24 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Catálogo de Productos
 
-## Getting Started
+Este es un proyecto de [Next.js](https://nextjs.org) para mostrar y gestionar un catálogo de productos con carrito de compras.
 
-First, run the development server:
+## Características
+
+- 🛍️ Catálogo de productos
+- 🛒 Carrito de compras
+- 💳 Proceso de checkout
+- 📱 Diseño responsivo
+- 🎨 Tema personalizable con Tailwind CSS
+
+## Requisitos Previos
+
+- Node.js 18.0 o superior
+- npm o pnpm
+
+## Instalación
+
+```bash
+# Clonar el repositorio
+git clone <url-del-repositorio>
+
+# Instalar dependencias
+npm install
+# o
+pnpm install
+```
+
+## Desarrollo
+
+Inicia el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
+# o
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
 
 ## Estructura del Proyecto
 
@@ -26,9 +45,12 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 catalogo-productos/
 ├── app/                    # Directorio principal de la aplicación
 │   ├── components/        # Componentes reutilizables
+│   │   ├── cart/         # Componentes relacionados al carrito
+│   │   └── ui/           # Componentes de interfaz común
 │   ├── lib/              # Utilidades y funciones auxiliares
 │   ├── api/              # Rutas de API
 │   └── page.tsx          # Página principal
+├── context/              # Contextos de React (ej: CartContext)
 ├── public/               # Archivos estáticos
 │   └── images/          # Imágenes del proyecto
 ├── styles/              # Estilos globales y módulos CSS
@@ -36,17 +58,27 @@ catalogo-productos/
 └── package.json         # Dependencias y scripts del proyecto
 ```
 
-## Learn More
+## Scripts Disponibles
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` - Inicia el servidor de desarrollo
+- `npm run build` - Construye la aplicación para producción
+- `npm run start` - Inicia el servidor de producción
+- `npm run lint` - Ejecuta el linter
+- `npm run test` - Ejecuta las pruebas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tecnologías Principales
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Next.js](https://nextjs.org/) - Framework de React
+- [TypeScript](https://www.typescriptlang.org/) - Superset de JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) - Framework de CSS
+- [Shadcn UI](https://ui.shadcn.com/) - Componentes de UI
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+La forma más sencilla de desplegar la aplicación es usando la [Plataforma Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para más detalles, consulta la [documentación de despliegue de Next.js](https://nextjs.org/docs/app/building-your-application/deploying).
+
+## Licencia
+
+MIT
