@@ -11,10 +11,7 @@ if (!MONGODB_URI) {
 
 export const connectDB = async () => {
     try {
-        await mongoose.connect(MONGODB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        await mongoose.connect(MONGODB_URI);
         console.log("✅ Conectado a MongoDB Atlas");
     } catch (error) {
         console.error("❌ Error al conectar MongoDB:", error);

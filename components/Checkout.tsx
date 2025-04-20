@@ -3,36 +3,44 @@
 import { useState } from "react";
 import { useCart } from "@/context/cart-context";
 
+interface BruddenProduct {
+  model: string;
+  pricePublico: number;
+}
+
+interface AgroforestaProduct {
+  name: string;
+  precioPublico: number;
+}
+
+
 export default function Checkout() {
   const { items, totalPrice, clearCart } = useCart();
   const [email, setEmail] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleCheckout = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Preparar los datos de la orden
     const orderData = {
       userEmail: email,
       products: items.map((item) => ({
-        // En este ejemplo, usamos "model" para brudden y "name" para agroforesta.
         name:
           item.type === "brudden"
-            ? (item.product as any).model
-            : (item.product as any).name,
-        // Aquí, ajusta el precio según tu estructura de producto.
+            ? (item.product as BruddenProduct).model
+            : (item.product as AgroforestaProduct).name,
         pricePublico:
           item.type === "brudden"
-            ? (item.product as any).pricePublico
-            : (item.product as any).precioPublico,
+            ? (item.product as BruddenProduct).pricePublico
+            : (item.product as AgroforestaProduct).precioPublico,
         quantity: item.quantity,
       })),
     };
 
     try {
-      const response = await fetch("http://localhost:5000/orders/create", {
+      const response = await fetch("http://localhost:5000/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(orderData),

@@ -5,8 +5,8 @@ import {
   getProductById,
   createProduct,
   updateProduct,
-  deleteProduct,
-  notify
+  deleteProduct
+ 
 } from '../controllers/productController.js';
 
 const router = Router();
@@ -19,6 +19,6 @@ router.put('/:id',  updateProduct);     // PUT  /api/products/:id
 router.delete('/:id', deleteProduct);   // DELETE /api/products/:id
 
 // Notificaciones (si sigue siendo necesario)
-router.post('/notify', notify);         // POST /api/products/notify
+         // POST /api/products/notify
 
 export default router;
