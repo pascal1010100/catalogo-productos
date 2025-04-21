@@ -4,19 +4,37 @@ import { useState } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ProductGrid } from "@/components/product-grid"
 import { SearchBar } from "@/components/search-bar"
-import { bruddenProducts, agroforestaProducts } from "@/lib/products"
 
-export function ProductsSection() {
+type Product = {
+  id: string
+  name: string
+  description?: string
+  priceMayorista?: number
+  pricePublico?: number
+  minCompra?: number
+  precioMinorista?: number
+  precioContado?: number
+  unidadesCaja?: number
+  type?: string // <- si vas a clasificar por tipo
+}
+
+interface ProductsSectionProps {
+  products: Product[]
+}
+
+export function ProductsSection({ products }: ProductsSectionProps) {
   const [searchQuery, setSearchQuery] = useState("")
 
-  const filteredBruddenProducts = bruddenProducts.filter(
-    (product) =>
-      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.model.toLowerCase().includes(searchQuery.toLowerCase()),
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
   )
 
-  const filteredAgroforestaProducts = agroforestaProducts.filter((product) =>
-    product.name.toLowerCase().includes(searchQuery.toLowerCase()),
+  const bruddenProducts = filteredProducts.filter(
+    (product) => product.type === "brudden"
+  )
+
+  const agroforestaProducts = filteredProducts.filter(
+    (product) => product.type === "agroforesta"
   )
 
   return (
@@ -32,14 +50,13 @@ export function ProductsSection() {
         </TabsList>
 
         <TabsContent value="brudden">
-          <ProductGrid products={filteredBruddenProducts} type="brudden" />
+          <ProductGrid products={bruddenProducts} type="brudden" />
         </TabsContent>
 
         <TabsContent value="agroforesta">
-          <ProductGrid products={filteredAgroforestaProducts} type="agroforesta" />
+          <ProductGrid products={agroforestaProducts} type="agroforesta" />
         </TabsContent>
       </Tabs>
     </section>
   )
 }
-
