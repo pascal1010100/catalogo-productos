@@ -17,5 +17,5 @@ model Product {
   precioMinorista Float?
   precioContado   Float?
   unidadesCaja    Int?
-  type            String   // 👈 Este campo nuevo
+  type            String?   // 👈 Este campo nuevo
 }

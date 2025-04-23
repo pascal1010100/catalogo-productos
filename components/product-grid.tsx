@@ -1,4 +1,8 @@
-interface Product {
+"use client"
+
+import { ProductCard } from "@/components/product-card"
+
+type Product = {
   id: string
   name: string
   description?: string
@@ -8,7 +12,9 @@ interface Product {
   precioMinorista?: number
   precioContado?: number
   unidadesCaja?: number
-  type?: string
+  type?: "brudden" | "agroforesta"
+  image?: string  // Added optional image property
+  model?: string  // Added model property for compatibility with BruddenProduct
 }
 
 interface ProductGridProps {
@@ -16,15 +22,19 @@ interface ProductGridProps {
   type: "brudden" | "agroforesta"
 }
 
-export const ProductGrid: React.FC<ProductGridProps> = ({ products, type }) => {
+export const ProductGrid = ({ products, type }: ProductGridProps) => {
   return (
-    <div>
-      <h1>Product Grid - {type}</h1>
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>{product.name}</li>
-        ))}
-      </ul>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {products.map((product) => (
+        <ProductCard
+          key={product.id}
+          product={{ ...product, model: product.model ?? "", type: type as "brudden" | "agroforesta" }}
+          type={type}
+          onClick={() => {
+            console.log("Ver más:", product.name)
+          }}
+        />
+      ))}
     </div>
-  );
-};
+  )
+}
