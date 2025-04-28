@@ -38,11 +38,19 @@ export function ProductModal({ product, type, isOpen, onClose }: ProductModalPro
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-muted p-4 rounded-md">
                   <h4 className="font-medium mb-2">Precio Mayorista</h4>
-                  <p className="text-2xl font-bold">Q {bruddenProduct.priceMayorista.toLocaleString("es-GT")}</p>
+                  <p className="text-2xl font-bold">
+                    {bruddenProduct.priceMayorista !== undefined
+                      ? `Q ${bruddenProduct.priceMayorista.toLocaleString("es-GT")}`
+                      : "Precio no disponible"}
+                  </p>
                 </div>
                 <div className="bg-muted p-4 rounded-md">
                   <h4 className="font-medium mb-2">Precio Público</h4>
-                  <p className="text-2xl font-bold">Q {bruddenProduct.pricePublico.toLocaleString("es-GT")}</p>
+                  <p className="text-2xl font-bold">
+                    {bruddenProduct.pricePublico !== undefined
+                      ? `Q ${bruddenProduct.pricePublico.toLocaleString("es-GT")}`
+                      : "Precio no disponible"}
+                  </p>
                 </div>
               </div>
 
@@ -92,11 +100,19 @@ export function ProductModal({ product, type, isOpen, onClose }: ProductModalPro
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-muted p-4 rounded-md">
                   <h4 className="font-medium mb-2">Precio Público</h4>
-                  <p className="text-2xl font-bold">Q {agroProduct.precioPublico.toLocaleString("es-GT")}</p>
+                  <p className="text-2xl font-bold">
+                    {agroProduct.precioPublico !== undefined
+                      ? `Q ${agroProduct.precioPublico.toLocaleString("es-GT")}`
+                      : "Precio no disponible"}
+                  </p>
                 </div>
                 <div className="bg-muted p-4 rounded-md">
                   <h4 className="font-medium mb-2">Precio Minorista</h4>
-                  <p className="text-lg font-semibold">Q {agroProduct.precioMinorista.toLocaleString("es-GT")}</p>
+                  <p className="text-lg font-semibold">
+                    {agroProduct.precioMinorista !== undefined
+                      ? `Q ${agroProduct.precioMinorista.toLocaleString("es-GT")}`
+                      : "Precio no disponible"}
+                  </p>
                   <p className="text-xs text-muted-foreground">Caja de {agroProduct.unidadesCaja} unidades</p>
                   <p className="text-xs text-muted-foreground">Crédito 20-30 días</p>
                 </div>
@@ -105,12 +121,20 @@ export function ProductModal({ product, type, isOpen, onClose }: ProductModalPro
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-muted p-4 rounded-md">
                   <h4 className="font-medium mb-2">Precio Mayorista</h4>
-                  <p className="text-lg font-semibold">Q {agroProduct.precioMayorista.toLocaleString("es-GT")}</p>
+                  <p className="text-lg font-semibold">
+                    {agroProduct.precioMayorista !== undefined
+                      ? `Q ${agroProduct.precioMayorista.toLocaleString("es-GT")}`
+                      : "Precio no disponible"}
+                  </p>
                   <p className="text-xs text-muted-foreground">Crédito 30-45 días</p>
                 </div>
                 <div className="bg-muted p-4 rounded-md">
                   <h4 className="font-medium mb-2">Precio Contado</h4>
-                  <p className="text-lg font-semibold">Q {agroProduct.precioContado.toLocaleString("es-GT")}</p>
+                  <p className="text-lg font-semibold">
+                    {agroProduct.precioContado !== undefined
+                      ? `Q ${agroProduct.precioContado.toLocaleString("es-GT")}`
+                      : "Precio no disponible"}
+                  </p>
                 </div>
               </div>
 

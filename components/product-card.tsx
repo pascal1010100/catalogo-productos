@@ -28,7 +28,8 @@ export function ProductCard({ product, type, onClick }: ProductCardProps) {
     if (product.image) {
       return product.image
     }
-    return `/images/placeholder.svg?text=${product.name.replace(/\s+/g, "+")}`
+    // Ruta fija a la imagen de placeholder
+    return "/images/default-placeholder.svg"
   }
 
   return (
@@ -70,4 +71,4 @@ export function ProductCard({ product, type, onClick }: ProductCardProps) {
       </CardFooter>
     </Card>
   )
-}
+} 

@@ -1,0 +1,31 @@
+<svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  width="300" 
+  height="300" 
+  viewBox="0 0 300 300"
+  fill="none"
+>
+  <rect width="300" height="300" fill="#F3F4F6"/>
+  <text 
+    x="50%" 
+    y="50%" 
+    dominant-baseline="middle" 
+    text-anchor="middle" 
+    font-family="system-ui"
+    font-size="16"
+    fill="#6B7280"
+  >
+    Sin imagen
+  </text>
+  <path 
+    d="M150 80c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm0 41.7c-9.2 0-16.7-7.5-16.7-16.7s7.5-16.7 16.7-16.7 16.7 7.5 16.7 16.7-7.5 16.7-16.7 16.7zm0-75c-41.4 0-75 33.6-75 75s33.6 75 75 75 75-33.6 75-75-33.6-75-75-75z" 
+    fill="#9CA3AF"
+  />
+  <image 
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" 
+    x="0" 
+    y="0" 
+    width="300" 
+    height="300"
+  />
+</svg>

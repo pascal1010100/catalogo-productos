@@ -36,7 +36,8 @@ export async function createProduct(req, res) {
     pricePublico,
     precioMinorista,
     precioContado,
-    unidadesCaja
+    unidadesCaja,
+    type
   } = req.body;
 
   if (!name || unidadesCaja === undefined) {
@@ -51,7 +52,8 @@ export async function createProduct(req, res) {
       pricePublico,
       precioMinorista,
       precioContado,
-      unidadesCaja
+      unidadesCaja,
+      type
     });
     return res.status(201).json(newProduct);
   } catch (error) {
