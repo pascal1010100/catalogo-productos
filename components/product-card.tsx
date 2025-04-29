@@ -29,7 +29,7 @@ export function ProductCard({ product, type, onClick }: ProductCardProps) {
       return product.image
     }
     // Ruta fija a la imagen de placeholder
-    return "/images/default-placeholder.svg"
+    return "/images/placeholder.svg"
   }
 
   return (

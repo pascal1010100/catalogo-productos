@@ -2,13 +2,14 @@
 import * as productService from '../services/productService.js';
 
 // Obtener todos los productos
-export async function getAllProducts(req, res) {
+export const getAllProducts = async (req, res) => {
   try {
-    const products = await productService.getAllProducts();
-    return res.status(200).json(products);
+    const products = await prisma.product.findMany()
+    console.log('Products found:', products)
+    res.json(products) // Asegúrate de que esto devuelve un array
   } catch (error) {
-    console.error("Error al obtener productos:", error);
-    return res.status(500).json({ error: "Error interno al obtener los productos." });
+    console.error('Error:', error)
+    res.status(500).json({ error: 'Internal server error' })
   }
 }
 

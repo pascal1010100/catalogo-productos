@@ -4,8 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev",                           
-    "dev:all": "concurrently \"npm run dev\" \"npm run server\"",  
+    "dev": "next dev",
+    "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
