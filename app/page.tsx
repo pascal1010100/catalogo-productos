@@ -6,7 +6,7 @@ import { ProductsSection } from "@/components/products-section";
 async function getProducts() {
   try {
     console.log("Iniciando fetch de productos...");
-    const res = await fetch("http://localhost:5000/api/products", {
+    const res = await fetch("http://localhost:5000/api/productos", {
       cache: "no-store",
       headers: {
         'Content-Type': 'application/json'

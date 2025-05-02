@@ -10,7 +10,7 @@ async function main() {
     console.log('📦 Productos encontrados:', products.length)
 
     // Prueba el endpoint
-    const response = await fetch('http://localhost:5000/api/products')
+    const response = await fetch('http://localhost:5000/api/producos')
     const responseText = await response.text() // Obtener respuesta como texto
     
     console.log('🔍 Status:', response.status)
